@@ -19,7 +19,8 @@
 <span aria-hidden="true">&times;</span></button>
         <ul class="nav navbar-nav">
           <li>
-            <a href="#">Home</a></li>
+            <%= link_to "Home", home_path %>
+          </li>
           <li>
             <a type="button" data-toggle="collapse" href="#menu" aria-expanded="false" aria-controls="menu">Shop</a>
             <ul id="menu" aria-expanded="false" class="collapse list-unstyled pl-30 mb-10">
@@ -40,7 +41,8 @@
       <div class="hidden-xs">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#">Home</a></li>
+            <%= link_to "Home", home_path %>
+          </li>
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">Shop</a>
             <ul class="dropdown-menu">
