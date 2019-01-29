@@ -71,10 +71,11 @@
       </div>
       <div class="mb-120">
         <div class="row">
+          <% @books.first(4).each do |book| %>
           <div class="col-xs-6 col-sm-3">
             <div class="general-thumb-wrap">
               <div class="thumbnail general-thumbnail">
-                <img src="http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg" alt="design-book" class="img-shadow general-thumbnail-img" />
+                <%= image_tag book.imagen %>
                 <div class="thumb-hover">
                   <div class="general-thumb-link-wrap">
                     <a href="#" class="thumb-hover-link">
@@ -85,78 +86,20 @@
               </div>
             </div>
             <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
+              <p class="title"><%= book.title %></p>
+              <p class="font-16 in-gold-500">€<%= book.price %></p>
               <span class="divider-sm"></span>
-              <p class="lead small">John Horton</p>
+              <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <img src="https://d31wxntiwn0x96.cloudfront.net/rzgade/productimages/1276.jpg?width=400&amp;height=400&amp;etag=%22a2ebd1488b087bf0e6db43ee8bae0634%22" alt="design-book" class="img-shadow general-thumbnail-img" />
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
-              <span class="divider-sm"></span>
-              <p class="lead small">Bass Jobsen, David Cochran, Ian Whitley</p>
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ352GRUKdIFLP3va0Tj7QREidI4lwUABrtUJbQehqIL02O_blo" alt="design-book" class="img-shadow general-thumbnail-img" />
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
-              <span class="divider-sm"></span>
-              <p class="lead small">Bass Jobsen, David Cochran, Ian Whitley</p>
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <img src="http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg" alt="design-book" class="img-shadow general-thumbnail-img" />
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
-              <span class="divider-sm"></span>
-              <p class="lead small">Bass Jobsen, David Cochran, Ian Whitley</p>
-            </div>
-          </div>
+          <% end %>
         </div>
         <div class="row mb-25">
+          <% @books.first(4).each do |book| %>
           <div class="col-xs-6 col-sm-3">
             <div class="general-thumb-wrap">
               <div class="thumbnail general-thumbnail">
-                <img src="http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg" alt="design-book" class="img-shadow general-thumbnail-img" />
+                <%= image_tag book.imagen %>
                 <div class="thumb-hover">
                   <div class="general-thumb-link-wrap">
                     <a href="#" class="thumb-hover-link">
@@ -167,72 +110,14 @@
               </div>
             </div>
             <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
+              <p class="title"><%= book.title %></p>
+              <p class="font-16 in-gold-500">€<%= book.price %></p>
               <span class="divider-sm"></span>
-              <p class="lead small">John Horton</p>
+              <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail disabled">
-                <img src="http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg" alt="design-book" class="img-shadow general-thumbnail-img" />
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
-              <span class="divider-sm"></span>
-              <p class="lead small">Bass Jobsen, David Cochran, Ian Whitley</p>
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <img src="http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg" alt="design-book" class="img-shadow general-thumbnail-img" />
-                <div class="thumb-hover-link">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
-              <span class="divider-sm"></span>
-              <p class="lead small">Bass Jobsen, David Cochran, Ian Whitley</p>
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <img src="http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg" alt="design-book" class="img-shadow general-thumbnail-img" />
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title">Android Programming for Beginners</p>
-              <p class="font-16 in-gold-500">€28.50</p>
-              <span class="divider-sm"></span>
-              <p class="lead small">Bass Jobsen, David Cochran, Ian Whitley</p>
-            </div>
-          </div>
+          <% end %>
+
         </div>
         <div class="text-center">
           <button class="btn btn-primary">View More</button></div>
