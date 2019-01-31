@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: bookstore_production
   username: bookstore
   password: <%= ENV['BOOKSTORE_DATABASE_PASSWORD'] %>
