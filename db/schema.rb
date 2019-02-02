@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_201744) do
+ActiveRecord::Schema.define(version: 2019_02_02_152546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2019_01_29_201744) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "book_reviews", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_reviews_on_book_id"
+    t.index ["review_id"], name: "index_book_reviews_on_review_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "imagen"
     t.string "title"
@@ -48,4 +57,24 @@ ActiveRecord::Schema.define(version: 2019_01_29_201744) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.integer "rating"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.string "addres"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "reviews", "users"
 end
