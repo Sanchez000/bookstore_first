@@ -11,9 +11,16 @@
           <li data-target="#slider" data-slide-to="0" class="active"></li>
           <li data-target="#slider" data-slide-to="1"></li>
         </ol>
+
+
         <div role="listbox" class="carousel-inner">
+
+          <% @latest_books.each_with_index do |book, index| %>
+          <% if index == 0 %>
           <div class="item active">
-            <% book = @books.first %>
+          <% else %>
+            <div class="item">
+          <% end %>
             <div class="row">
               <div class="col-sm-5">
                 <div class="general-img-wrap">
@@ -31,38 +38,20 @@
               </div>
             </div>
           </div>
-
-
-          <div class="item">
-            <% book = @books.second %>
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="general-img-wrap">
-                  <%= image_tag book.imagen, alt: "design-book", class: "img-shadow general-thumbnail-img" %>
-                </div>
-              </div>
-              <div class="col-sm-7">
-                <div class="mb-60">
-                  <h1><%= book.title %></h1>
-                  <p class="lead">Smart front-end techniques and design patterns derived from real-life responsive projects</p>
-                  <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
-                  <div class="general-align">
-                    <button class="btn btn-primary">Buy Now</button></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
+          <% end %>
 
         </div>
+
+
         <a href="#slider" role="button" data-slide="prev" class="left carousel-control">
-<span aria-hidden="true" class="icon-prev"></span>
-<span class="sr-only">Previous</span></a>
+          <span aria-hidden="true" class="icon-prev"></span>
+          <span class="sr-only">Previous</span>
+        </a>
         <a href="#slider" role="button" data-slide="next" class="right carousel-control">
-<span aria-hidden="true" class="icon-next"></span>
-<span class="sr-only">Next</span></a></div>
+          <span aria-hidden="true" class="icon-next"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     </main>
     <div class="container">
       <div class="jumbotron text-center mb-0">
@@ -76,7 +65,7 @@
         <h3>Best Sellers</h3>
         <div class="row">
 
-          <% @books.first(4).each do |book| %>
+          <% @best_sellers.first(4).each do |book| %>
           <div class="col-sm-6 col-md-3">
             <div class="general-thumb-wrap">
               <div class="thumbnail general-thumbnail">

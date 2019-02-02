@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_152546) do
+ActiveRecord::Schema.define(version: 2019_02_02_203915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 2019_02_02_152546) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "publication_year"
+    t.string "dimentions"
+    t.integer "sales_count"
+    t.text "description"
+    t.string "material"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
