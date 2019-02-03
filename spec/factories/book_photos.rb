@@ -1,0 +1,8 @@
+FactoryBot.define do
+  factory :book_photo do
+    imagen { 'https://d31wxntiwn0x96.cloudfront.net/rzgade/productimages/1276.jpg?width=400&amp;height=400&amp;etag=%22a2ebd1488b087bf0e6db43ee8bae0634%22' }
+    # imagen { 'https://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg' }
+    # imagen { 'http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg' }
+    # imagen { 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ352GRUKdIFLP3va0Tj7QREidI4lwUABrtUJbQehqIL02O_blo' }
+  end
+end
