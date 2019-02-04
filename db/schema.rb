@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_150903) do
+ActiveRecord::Schema.define(version: 2019_02_04_184747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_02_03_150903) do
     t.string "imagen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_book_photos_on_book_id"
   end
 
   create_table "book_reviews", force: :cascade do |t|
@@ -58,8 +60,6 @@ ActiveRecord::Schema.define(version: 2019_02_03_150903) do
     t.integer "sales_count"
     t.text "description"
     t.string "material"
-    t.bigint "book_photo_id"
-    t.index ["book_photo_id"], name: "index_books_on_book_photo_id"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
@@ -88,6 +88,6 @@ ActiveRecord::Schema.define(version: 2019_02_03_150903) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "books", "book_photos"
+  add_foreign_key "book_photos", "books"
   add_foreign_key "reviews", "users"
 end

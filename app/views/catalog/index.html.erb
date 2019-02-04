@@ -25,13 +25,13 @@
         <ul class="list-inline pt-10 mb-25 mr-240">
           <li class="mr-35">
             <a href="#" class="filter-link">All
-    <span class="badge general-badge">135</span>
+    <span class="badge general-badge"><%= Category.all.map(&:books).flatten.size %></span>
             </a>
           </li>
           <% @categorys.each do |category| %>
           <li class="mr-35">
             <a href="#" id="<%= category.id %>" class="filter-link"><%= category.title %>
-                <span class="badge general-badge">135</span>
+                <span class="badge general-badge"><%= category.books.count %></span>
             </a>
           </li>
           <% end %>
@@ -75,7 +75,7 @@
           <div class="col-xs-6 col-sm-3">
             <div class="general-thumb-wrap">
               <div class="thumbnail general-thumbnail">
-                <%= image_tag book.imagen %>
+                <%= image_tag book.book_photos.first.imagen %>
                 <div class="thumb-hover">
                   <div class="general-thumb-link-wrap">
                     <a href="#" class="thumb-hover-link">
@@ -99,7 +99,7 @@
           <div class="col-xs-6 col-sm-3">
             <div class="general-thumb-wrap">
               <div class="thumbnail general-thumbnail">
-                <%= image_tag book.imagen %>
+                <%= image_tag book.book_photos.first.imagen %>
                 <div class="thumb-hover">
                   <div class="general-thumb-link-wrap">
                     <a href="#" class="thumb-hover-link">

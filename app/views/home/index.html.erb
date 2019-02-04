@@ -24,13 +24,13 @@
             <div class="row">
               <div class="col-sm-5">
                 <div class="general-img-wrap">
-                  <%= image_tag book.imagen, alt: "design-book", class: "img-shadow general-thumbnail-img" %>
+                  <%= image_tag book.book_photos.first.imagen, alt: "design-book", class: "img-shadow general-thumbnail-img" %>
                 </div>
               </div>
               <div class="col-sm-7">
                 <div class="mb-60">
                   <h1><%= book.title %></h1>
-                  <p class="lead">Smart front-end techniques and design patterns derived from real-life responsive projects</p>
+                  <p class="lead"><%= book.description%></p>
                   <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
                   <div class="general-align">
                     <button class="disabled btn">Buy Now</button></div>
@@ -69,7 +69,7 @@
           <div class="col-sm-6 col-md-3">
             <div class="general-thumb-wrap">
               <div class="thumbnail general-thumbnail">
-                <%= image_tag book.imagen %>
+                <%= image_tag book.book_photos.first.imagen %>
                 <div class="thumb-hover">
                   <div class="general-thumb-link-wrap">
                     <a href="#" class="thumb-hover-link">

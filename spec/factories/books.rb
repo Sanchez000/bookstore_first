@@ -2,7 +2,6 @@ require 'ffaker'
 require 'faker'
 FactoryBot.define do
   factory :book do
-    book_photo_id { [1, 2, 3, 4] }
     title { 'Android Programming for Beginners' }
     price { 10.00 }
     category_id { 2 }
@@ -19,10 +18,9 @@ FactoryBot.define do
   end
 
   factory :random_book, class: Book do
-    book_photo_id { FactoryBot.create(:book_photo) }
     title { FFaker::Book.title }
     price { Faker::Commerce.price }
-    category_id { rand(1..4) }
+    category_id { rand(1..3) }
     publication_year { FFaker::Vehicle.year }
     dimentions { FFaker::Vehicle.engine_displacement }
     sales_count { rand(1..15) }
