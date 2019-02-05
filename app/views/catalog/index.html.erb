@@ -24,15 +24,19 @@
         </div>
         <ul class="list-inline pt-10 mb-25 mr-240">
           <li class="mr-35">
-            <a href="#" class="filter-link">All
-    <span class="badge general-badge"><%= Category.all.map(&:books).flatten.size %></span>
-            </a>
+            <%= link_to catalog_path, class: "filter-link" do %>
+              All
+              <span class="badge general-badge">
+                <%= Category.all.map(&:books).flatten.size %>
+              </span>
+            <% end %>
           </li>
           <% @categorys.each do |category| %>
           <li class="mr-35">
-            <a href="#" id="<%= category.id %>" class="filter-link"><%= category.title %>
+            <%= link_to catalog_path(id: category.id), class: "filter-link" do %>
+                <%= category.title %>
                 <span class="badge general-badge"><%= category.books.count %></span>
-            </a>
+            <% end %>
           </li>
           <% end %>
         </ul>
@@ -69,59 +73,63 @@
           </ul>
         </div>
       </div>
+
       <div class="mb-120">
         <div class="row">
           <% @books.first(4).each do |book| %>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <%= image_tag book.book_photos.first.imagen %>
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
+              <div class="col-xs-6 col-sm-3">
+                <div class="general-thumb-wrap">
+                  <div class="thumbnail general-thumbnail">
+                    <%= image_tag book.book_photos.first.imagen %>
+                    <div class="thumb-hover">
+                      <div class="general-thumb-link-wrap">
+                        <a href="#" class="thumb-hover-link">
+        <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
+                        <a href="#" class="thumb-hover-link">
+        <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="general-thumb-info">
+                  <p class="title"><%= book.title %></p>
+                  <p class="font-16 in-gold-500">€<%= book.price %></p>
+                  <span class="divider-sm"></span>
+                  <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
                 </div>
               </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title"><%= book.title %></p>
-              <p class="font-16 in-gold-500">€<%= book.price %></p>
-              <span class="divider-sm"></span>
-              <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
-            </div>
-          </div>
-          <% end %>
+              <% end %>
         </div>
         <div class="row mb-25">
-          <% @books.first(4).each do |book| %>
-          <div class="col-xs-6 col-sm-3">
-            <div class="general-thumb-wrap">
-              <div class="thumbnail general-thumbnail">
-                <%= image_tag book.book_photos.first.imagen %>
-                <div class="thumb-hover">
-                  <div class="general-thumb-link-wrap">
-                    <a href="#" class="thumb-hover-link">
-    <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
-                    <a href="#" class="thumb-hover-link">
-    <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
+          <% @books.offset(4).first(4).each do |book| %>
+              <div class="col-xs-6 col-sm-3">
+                <div class="general-thumb-wrap">
+                  <div class="thumbnail general-thumbnail">
+                    <%= image_tag book.book_photos.first.imagen %>
+                    <div class="thumb-hover">
+                      <div class="general-thumb-link-wrap">
+                        <a href="#" class="thumb-hover-link">
+        <i aria-hidden="true" class="fa fa-eye thumb-icon"></i></a>
+                        <a href="#" class="thumb-hover-link">
+        <i class="fa fa-shopping-cart thumb-icon"></i></a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="general-thumb-info">
+                  <p class="title"><%= book.title %></p>
+                  <p class="font-16 in-gold-500">€<%= book.price %></p>
+                  <span class="divider-sm"></span>
+                  <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
                 </div>
               </div>
-            </div>
-            <div class="general-thumb-info">
-              <p class="title"><%= book.title %></p>
-              <p class="font-16 in-gold-500">€<%= book.price %></p>
-              <span class="divider-sm"></span>
-              <p class="lead small"><%= book.author.map { |author| author.first_name + ' ' + author.last_name }.join(", ") %></p>
-            </div>
-          </div>
-          <% end %>
-
+              <% end %>
         </div>
+
         <div class="text-center">
-          <button class="btn btn-primary">View More</button></div>
+          <button class="btn btn-primary">View More</button>
+        </div>
       </div>
+
+
     </main>
     <%= render 'parts/footer' %>
   </body>
