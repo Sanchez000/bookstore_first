@@ -8,17 +8,26 @@
       <div class="hidden-xs clearfix">
         <div class="dropdowns pull-right">
           <div class="dropdown width-240">
-            <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle lead small">Newest first
+            <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" id="dropdownMenuLink" aria-expanded="false" class="dropdown-toggle lead small">Newest first
     <i class="fa fa-angle-down dropdown-icon pull-right"></i></a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">Newest first</a></li>
+                <%= link_to 'Newest first', catalog_path(id: @selected_category_id, column: "created_at") %>
               <li>
-                <a href="#">Popular first</a></li>
+                <%= link_to 'Popular first', catalog_path(id: @selected_category_id, column: "created_at") %>
+              </li>
               <li>
-                <a href="#">Price: Low to hight</a></li>
+                <%= link_to 'Price: Hight to low', catalog_path(id: @selected_category_id, column: "price", direction: "desc") %>
+              </li>
               <li>
-                <a href="#">Price: Hight to low</a></li>
+                <%= link_to 'Price: Low to hight', catalog_path(id: @selected_category_id, column: "price") %>
+              </li>
+              <li>
+                <%= link_to 'Title: A - Z', catalog_path(id: @selected_category_id, column: "title") %>
+              </li>
+              <li>
+                <%= link_to 'Title: Z - A', catalog_path(id: @selected_category_id, column: "title", direction: "desc") %>
+              </li>
             </ul>
           </div>
         </div>
@@ -41,38 +50,7 @@
           <% end %>
         </ul>
       </div>
-      <div class="dropdowns mb-25 visible-xs">
-        <p class="lead small mb-10">Filter by category</p>
-        <div class="dropdown">
-          <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle lead small">Newest first
-    <i class="fa fa-angle-down dropdown-icon pull-right"></i></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">Newest first</a></li>
-            <li>
-              <a href="#">Popular first</a></li>
-            <li>
-              <a href="#">Price: Low to hight</a></li>
-            <li>
-              <a href="#">Price: Hight to low</a></li>
-          </ul>
-        </div>
-        <p class="lead small mb-10">Sort by</p>
-        <div class="dropdown">
-          <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle lead small">Newest first
-    <i class="fa fa-angle-down dropdown-icon pull-right"></i></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">Newest first</a></li>
-            <li>
-              <a href="#">Popular first</a></li>
-            <li>
-              <a href="#">Price: Low to hight</a></li>
-            <li>
-              <a href="#">Price: Hight to low</a></li>
-          </ul>
-        </div>
-      </div>
+
 
       <div class="mb-120">
         <div class="row">
@@ -128,8 +106,6 @@
           <button class="btn btn-primary">View More</button>
         </div>
       </div>
-
-
     </main>
     <%= render 'parts/footer' %>
   </body>
