@@ -12,6 +12,7 @@ class CatalogController < ApplicationController
   end
   
   def show
+    @current_user
     @categorys = Category.all
     @book = Book.find_by(id: params[:id])
   end
