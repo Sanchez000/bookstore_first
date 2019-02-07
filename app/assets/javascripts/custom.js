@@ -1,5 +1,6 @@
-$('body').on('click', '.dropdown-icon', function (event) {
+$('body').on('click', '.dropdown-toggle', function (event) {
+    //$('.dropdown-toggle').dropdown();
+    $this.dropdown();
     event.preventDefault(); 
-    $('.dropdown-toggle').dropdown();
 });
 
