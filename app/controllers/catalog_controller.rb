@@ -10,6 +10,10 @@ class CatalogController < ApplicationController
                Book.all.limit(12).order("#{sort_column} #{sort_direction}")
              end
   end
+  
+  def show
+    @book = Book.find_by(id: params[:id])
+  end
 
   private
 
