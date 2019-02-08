@@ -13,7 +13,7 @@ class CatalogController < ApplicationController
   
   def show
     @current_user
-    @path_to_back = request.fullpath
+    @path_to_back = request.referer
     @categorys = Category.all
     @book = Book.find_by(id: params[:id])
   end
