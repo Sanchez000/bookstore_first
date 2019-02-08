@@ -4,10 +4,10 @@
   <body>
     <%= render 'parts/header' %>
     <main class="container">
-      <a href="/catalog" class="general-back-link">
-        <i class="fa fa-long-arrow-left mr-15"></i>
+      <% link_to @path_to_back, class: "general-back-link" do %>
+          <i class="fa fa-long-arrow-left mr-15"></i>
         Back to results
-      </a>
+      <% end %>
       <div class="row">
         <div class="col-sm-6">
           <div class="product-gallery">
@@ -17,7 +17,7 @@
             <div class="images clearfix">
              <% @book.book_photos.offset(1).each do |book| %>    
               <a href="#" class="img-link">
-                   <%= image_tag book.imagen %>
+                <%= image_tag book.imagen %>
               </a>
               <% end %>
             </div>
