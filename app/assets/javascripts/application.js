@@ -16,5 +16,4 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require readmore
 //= require_tree .
