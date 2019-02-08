@@ -37,7 +37,9 @@
                 </a>
                 <input type="text" class="form-control quantity-input" />
                 <a href="#" class="input-link">
-<i class="fa fa-plus line-height-40"></i></a></div>
+                  <i class="fa fa-plus line-height-40"></i>
+                </a>
+              </div>
             </div>
             <div class="col-xs-7 col-md-5">
               <button class="btn btn-default pull-right general-position">Add to Cart</button></div>
@@ -56,7 +58,7 @@
           <div class="general-info-wrap divider-lg">
             <div class="clearfix">
               <p class="pull-left">Dimensions</p>
-              <p class="lead small pull-right"><%= @book.dimentions %></p>
+              <p class="lead small pull-right">H:<%= @book.dimentions %>" x W: <%= @book.dimentions %>" x D: <%= @book.dimentions %></p>
             </div>
           </div>
           <div class="general-info-wrap divider-lg">
@@ -97,7 +99,7 @@
       <% end %>
       
       
-      <% if @book.book_review %>
+      <% if @book.book_review.size > 0 %>
       <div class="mb-80">
         <h3 class="in-gold-500 mb-25">Reviews (3)</h3>
         <div class="general-message-wrap divider-lg">
